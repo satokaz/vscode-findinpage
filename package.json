@@ -10,7 +10,7 @@
   "categories": [
     "Other"
   ],
-  "icon": "media/images/search.png",
+  "icon": "media/svg/search.svg",
     "homepage": "https://github.com/satokaz/vscode-findinpage",
   "repository": {
     "type": "git",
