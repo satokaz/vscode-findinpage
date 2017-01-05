@@ -11,6 +11,14 @@
     "Other"
   ],
   "icon": "media/images/search.png",
+    "homepage": "https://github.com/satokaz/vscode-findinpage",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/satokaz/vscode-findinpage"
+  },
+  "bugs": {
+    "url": "https://github.com/satokaz/vscode-findinpage/issues"
+  },
   "activationEvents": [
     "onCommand:extension.findinpage"
   ],
