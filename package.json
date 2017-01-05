@@ -1,0 +1,42 @@
+{
+  "name": "vscode-findinpage",
+  "displayName": "\"Find in Page\" in Preview Editor",
+  "description": "",
+  "version": "0.0.1",
+  "publisher": "satokaz",
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "media/images/search.png",
+  "activationEvents": [
+    "onCommand:extension.findinpage"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.findinpage",
+        "title": "Toggle \"Find in Page\" in Preview Editor"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0",
+    "mocha": "^2.3.3",
+    "@types/node": "^6.0.40",
+    "@types/mocha": "^2.2.32"
+  },
+  "dependencies": {
+    "vscode-nls": "^2.0.1"
+  }
+}
