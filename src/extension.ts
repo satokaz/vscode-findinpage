@@ -3,7 +3,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
-
 import * as nls from 'vscode-nls';
 
 // var localize = nls.loadMessageBundle(__filename);
@@ -14,8 +13,13 @@ interface MyMessageItem extends vscode.MessageItem {
 }
 
 var execPath = process.execPath;
-var pathname = path.dirname(execPath).split("/");
-var webviewPreJsPath = path.join(path.parse(execPath).root, pathname[0], pathname[1], pathname[2], pathname[3], '/Resources/app/out/vs/workbench/parts/html/browser/webview-pre.js');
+var pathname = path.dirname(execPath).split(path.sep);
+if (process.platform == 'win32') {
+	var webviewPreJsPath = path.join(path.parse(execPath).root, pathname[1], pathname[2], '\\resources\\app\\out\\vs\\workbench\\parts\\html\\browser\\webview-pre.js');
+} else {
+	var webviewPreJsPath = path.join(path.parse(execPath).root, pathname[0], pathname[1], pathname[2], pathname[3], '/Resources/app/out/vs/workbench/parts/html/browser/webview-pre.js');
+}
+
 
 export function activate(context: vscode.ExtensionContext) {
 

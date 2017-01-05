@@ -3,6 +3,8 @@
 
 > **This extension replaces the files included in vscode distribution** and **Please Apply every time vscode is updated.**
 
+> **For windows only**: In order to execute `Apply` or `Restore`, You only have to activate **vscode with administrator privileges** once.
+
 ## Features
 
 Add a `"Find in Page"` button to the preview editor.
@@ -33,6 +35,12 @@ ext install vscode-findinpage
 
 * **Apply**: Enable the `"Find in Page"` button and Replace the file.
 * **Restore**: Disable the `"Find in Page"` button and Restore the original file.
+
+> **For windows only**: In order to execute `Apply` or `Restore`, You only have to activate **vscode with administrator privileges** once.
+
+```
+Error: EPERM: operation not permitted, open 'C:\Program Files (x86)\Microsoft VS Code\resources\app\out\vs\workbench\parts\html\browser\webview-pre.js'
+```
 
 ### Apply
 
