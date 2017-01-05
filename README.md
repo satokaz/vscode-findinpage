@@ -7,15 +7,16 @@
 
 Add a `"Find in Page"` button to the preview editor.
 
-![](media/images/2017-01-05-11-43-56.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-11-43-56.png)
+
 
 You can search documents such as **Help | Release note**, Markdown preview, [Git History (git log)](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory) Extension's `Git: View History (git log)`  and more.
 
-![](media/images/2017-01-05-12-00-18.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-12-00-18.png)
 
-![](media/images/2017-01-05-11-50-04.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-11-50-04.png)
 
-![](media/images/2017-01-05-11-55-31.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-11-55-31.png)
 
 
 ## Installation
@@ -35,12 +36,12 @@ ext install vscode-findinpage
 
 ### Apply
 
-![](media/images/2017-01-05-12-32-43.png)
-![](media/images/2017-01-05-12-33-02.png)
-![](media/images/2017-01-05-12-33-19.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-12-32-43.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-12-33-02.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-12-33-19.png)
 
 **Help | Release Notes** 
-![](media/images/2017-01-05-12-33-51.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-12-33-51.png)
 
 Click on the lens icon and Please enter keyword to search and press Enter key.
 
