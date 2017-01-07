@@ -19,13 +19,13 @@ You can search documents such as **Help | Release note**, Markdown preview, [Git
 
 
 Release Notes:
-![](media/images/2017-01-07-13-49-58.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-49-58.png)
 
 Markdown Preview:
-![](media/images/2017-01-07-13-55-51.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-55-51.png)
 
 Git: View History:
-![](media/images/2017-01-07-13-58-21.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-58-21.png)
 
 
 ## Installation
