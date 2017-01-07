@@ -9,3 +9,7 @@ tsconfig.json
 vsc-extension-quickstart.md
 media/backup/**
 media/images/**
+js/**
+demo.md
+gulpfile.js
+media/find6.js

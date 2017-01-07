@@ -2,6 +2,6 @@ out
 node_modules
 media/find6.js*
 demo.md
-backup
+media/backup
 gulpfile.js
 js
