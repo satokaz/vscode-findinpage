@@ -9,11 +9,11 @@
 
 Add a `"Find in Page"` button to the preview editor.
 
-![](media/images/2017-01-07-13-33-21.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-33-21.png)
 
 Click on the lens icon and Please enter keyword to search and press Enter key.
 
-![](media/images/2017-01-07-13-44-58.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-44-58.png)
 
 You can search documents such as **Help | Release note**, Markdown preview, [Git History (git log)](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory) Extension's `Git: View History (git log)`  and more.
 
