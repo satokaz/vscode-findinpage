@@ -47,11 +47,11 @@ function webviewPreJsToggle(media) {
 	vscode.window.showInformationMessage<MyMessageItem>(
 				localize('toggle', 'Would you like to Enable the "Find in page" in the preview editor? (Currently {0})', fileBeing),
 				{
-					title: localize('apply', 'Apply'),
+					title: localize('install', 'Install'),
 					id: 1
 				},
 				{
-					title: localize('restore', 'Restore'),
+					title: localize('uninstall', 'UnInstall'),
 					id: 2
 				},
 				{
@@ -69,13 +69,13 @@ function webviewPreJsToggle(media) {
 					case 1:
 						// console.log("case 1");
 						if (fileBeing === "Enabled"){
-							vscode.window.showInformationMessage('Please with peace of mind. It has already been applied.');
+							vscode.window.showInformationMessage('Please with peace of mind. It has already been installed.');
 							break;
 						} else {
 							// console.log(webviewPreJsPath + '.orig is not exist');
 							fs.writeFileSync(webviewPreJsPath + '.orig', fs.readFileSync(webviewPreJsPath,"utf-8"), 'utf8');
 							fs.writeFileSync(webviewPreJsPath, fs.readFileSync(media,"utf-8"), 'utf8');
-							vscode.window.showInformationMessage('Apply to "Find in Page" in Preview Editor has been completed');
+							vscode.window.showInformationMessage('Install to "Find in Page" in Preview Editor has been completed');
 						}
 						break;
 					case 2:
@@ -84,10 +84,10 @@ function webviewPreJsToggle(media) {
 							// console.log(webviewPreJsPath + '.orig is  exists.');
 							fs.writeFileSync(webviewPreJsPath, fs.readFileSync(webviewPreJsPath + '.orig', "utf-8"), 'utf8');
 							fs.unlinkSync(webviewPreJsPath + '.orig');
-							vscode.window.showInformationMessage('Restore is complete.');
+							vscode.window.showInformationMessage('Uninstall is complete.');
 							break;
 						} else {
-							vscode.window.showInformationMessage('No "Find in Page" in Preview Editor has been applied.');
+							vscode.window.showInformationMessage('No "Find in Page" in Preview Editor has been installed.');
 						}
 				}
 			});

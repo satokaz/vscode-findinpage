@@ -1,8 +1,8 @@
 {
   "name": "vscode-findinpage",
   "displayName": "\"Find in Page\" in Preview Editor",
-  "description": "",
-  "version": "0.0.2",
+  "description": "Add a \"Find in Page\" button to the preview editor.",
+  "version": "0.0.3",
   "publisher": "satokaz",
   "engines": {
     "vscode": "^1.5.0"
@@ -11,7 +11,7 @@
     "Other"
   ],
   "icon": "media/svg/search.svg",
-    "homepage": "https://github.com/satokaz/vscode-findinpage",
+  "homepage": "https://github.com/satokaz/vscode-findinpage",
   "repository": {
     "type": "git",
     "url": "https://github.com/satokaz/vscode-findinpage"
@@ -38,11 +38,15 @@
     "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^2.0.3",
-    "vscode": "^1.0.0",
-    "mocha": "^2.3.3",
+    "@types/mocha": "^2.2.32",
     "@types/node": "^6.0.40",
-    "@types/mocha": "^2.2.32"
+    "babel-preset-es2015": "^6.18.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^2.3.3",
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0"
   },
   "dependencies": {
     "vscode-nls": "^2.0.1"
