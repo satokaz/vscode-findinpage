@@ -1,6 +1,7 @@
 out
 node_modules
 media/find6.js*
+!media/find6.js
 demo.md
 media/backup
 gulpfile.js
