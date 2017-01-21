@@ -85,7 +85,7 @@ function create_textchanger_div()
 		"border: 1px solid black; background: lightgray; cursor: pointer; padding: 1px; margin: 3px 2px; -webkit-user-select:none; -ms-user-select: none;";
 	var menu_style = "background-color: #e5e5e5;";
 	if (text_settings.lock_button) menu_style += "float: left;";
-	addCss(".cool_textchanger_btn {"+button_style+"}"); // Comment out this line if you are using your own css for the buttons
+	// addCss(".cool_textchanger_btn {"+button_style+"}"); // Comment out this line if you are using your own css for the buttons
 	addCss(".cool_textchanger_menu {"+menu_style+"}"); // Comment out this line if you are using your own css for the text settings menu
 	// Now we will add transition to the style. Can't transition from width:0px to auto so use max-width instead 
 	var transition_style = "transition: all 300ms; overflow: hidden;";
