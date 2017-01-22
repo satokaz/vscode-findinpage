@@ -59,7 +59,7 @@ function webviewPreJsToggle(mediaPath: string) {
 		fileBeing = "Enabled"; 
 	}
 	vscode.window.showInformationMessage<MyMessageItem>(
-		localize('toggle', 'Would you like to Enable the "Find in page" in the preview editor? (Currently {0})', fileBeing),
+		localize('toggle', 'Would you like to Enable the Preview Tools in the Preview Editor? (Currently {0})', fileBeing),
 			{
 				title: localize('install', 'Install'),
 				id: 1
@@ -98,7 +98,7 @@ function webviewPreJsToggle(mediaPath: string) {
 					// console.log(webviewPreJsPath + '.orig is not exist');
 					fs.writeFileSync(fileWebviewPreJs + '.orig', fs.readFileSync(fileWebviewPreJs, "utf-8"), 'utf8');
 					fs.writeFileSync(fileWebviewPreJs, fs.readFileSync(path.join(mediaPath, 'webview-pre_previewtools.js'),"utf-8"), 'utf8');
-					vscode.window.showInformationMessage('Install to "Find in Page" in Preview Editor has been completed');
+					vscode.window.showInformationMessage('Install to Preview Tools in Preview Editor has been completed');
 				}
 				break;
 			case 2:
@@ -111,7 +111,7 @@ function webviewPreJsToggle(mediaPath: string) {
 					vscode.window.showInformationMessage('Uninstall is complete.');
 					break;
 				} else {
-					vscode.window.showInformationMessage('No "Find in Page" in Preview Editor has been installed.');
+					vscode.window.showInformationMessage('No Preview Tools in Preview Editor has been installed.');
 				}
 		}
 	});
@@ -122,5 +122,5 @@ function statPath(path: string) {
   try {
     return fs.statSync(path);
   } catch (ex) {}
-  return false;
+  return void 0;
 }
