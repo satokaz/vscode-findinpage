@@ -1,4 +1,4 @@
-# "Find in Page" in Preview Editor README
+# Previw Tools for Preview Editor README
 
 
 > **この拡張機能は、VS Code に含まれるファイルを入れ替えます。そのため、VS Code がアップデートされる度に拡張機能から `Install` を実行する必要があります**
