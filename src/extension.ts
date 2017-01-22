@@ -23,13 +23,11 @@ if (process.platform == 'win32') {
 	var webviewPreJsPath = path.join(path.parse(execPath).root, pathname[0], pathname[1], pathname[2], pathname[3], '/Resources/app/out/vs/workbench/parts/html/browser');
 }
 
-
 export function activate(context: vscode.ExtensionContext) {
 
     console.log('Congratulations, your extension "vscode-findinpage" is now active!');
 
     let disposable = vscode.commands.registerCommand('extension.findinpage', () => {
-
 		const mediaPath = context.asAbsolutePath(path.join('media'));
 		
 		// debug
@@ -44,19 +42,16 @@ export function activate(context: vscode.ExtensionContext) {
 
 		webviewPreJsToggle(mediaPath);
 	});
-
-    context.subscriptions.push(disposable);
+  context.subscriptions.push(disposable);
 }
-
 
 function webviewPreJsToggle(mediaPath: string) {
 
-	console.log('mediaPath =', mediaPath);
-
+	// console.log('mediaPath =', mediaPath);
 	let fileWebviewPreJs = path.join(webviewPreJsPath, 'webview-pre.js');
-
 	let fileBeing: string;
-	 if(!statPath(fileWebviewPreJs + '.orig')) {
+
+	if (!statPath(fileWebviewPreJs + '.orig')) {
 		// console.log('file/dir not found: ' + webviewPreJsPath + '.orig');
 		fileBeing = "Disabled";
 	} else {

@@ -1,5 +1,4 @@
-# "Find in Page" in Preview Editor README
-
+# Previw Tools for Preview Editor README
 
 > **This extension replaces the files included in vscode distribution** and **Please install every time vscode is updated.**
 
@@ -7,25 +6,37 @@
 
 ## Features
 
+Add a bit two functions to the `Preview Editor` such as Markdow etc...
+
+* Zoom font in Preview Editor with combination keyword.
+* "Find in Page" button. You can search words and other characters in preview editor.
+
+### Zoom font in Preview Editor with combination keyword.
+
+
+
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/fontzoom_LICEcap.gif)
+
+### "Find in Page" button.
 Add a `"Find in Page"` button to the preview editor.
 
-![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-33-21.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-07-13-33-21.png)
 
 Click on the lens icon and Please enter keyword to search and press Enter key.
 
-![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-44-58.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-07-13-44-58.png)
 
 You can search documents such as **Help | Release note**, Markdown preview, [Git History (git log)](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory) Extension's `Git: View History (git log)`  and more.
 
 
 Release Notes:
-![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-49-58.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-07-13-49-58.png)
 
 Markdown Preview:
-![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-55-51.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-07-13-55-51.png)
 
 Git: View History:
-![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-07-13-58-21.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-07-13-58-21.png)
 
 
 ## Installation
@@ -51,11 +62,9 @@ Error: EPERM: operation not permitted, open 'C:\Program Files (x86)\Microsoft VS
 
 ### Install
 
-![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-12-32-43.png)
-![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-12-33-02.png)
-![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/master/media/images/2017-01-05-12-33-19.png)
-
-
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-05-12-32-43.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-05-12-33-02.png)
+![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-05-12-33-19.png)
 
 ### How to update
 
