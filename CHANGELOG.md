@@ -1,6 +1,12 @@
 ## Change Log
 All notable changes to the "vscode-findinpage" extension will be documented in this file.
 
+### 0.0.5 
+
+- Rename from findinpage to previewtools
+- Add textchanger
+- Add find6.js and textchanger.js
+
 ### 0.0.3
 
 - Change Appearance
