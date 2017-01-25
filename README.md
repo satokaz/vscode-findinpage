@@ -11,7 +11,7 @@ Add a bit two functions to the `Preview Editor` such as Markdown etc...
 * Zoom font in Preview Editor with combination keyword.
 * "Find in Page" button. You can search words and other characters in preview editor.
 
-### Zoom font in Preview Editor with combination keyword.
+### Zoom font in Preview Editor with combination key.
 
 Font zooming possible only for Preview Editor.
 
@@ -33,7 +33,11 @@ Add a `"Find in Page"` button to the preview editor.
 
 ![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-07-13-33-21.png)
 
-Click on the lens icon and Please enter keyword to search and press Enter key.
+Click on the lens icon:
+
+* Please enter keyword to search and press `Enter` key.
+* Press the `ESC` key to close the search bar.
+
 
 ![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/2017-01-07-13-44-58.png)
 
