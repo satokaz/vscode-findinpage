@@ -125,14 +125,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		// set DOCTYPE for newDocument explicitly as DOMParser.parseFromString strips it off
 		// and DOCTYPE is needed in the iframe to ensure that the user agent stylesheet is correctly overridden
 		newFrame.contentDocument.write('<!DOCTYPE html>');
-		getTarget().contentDocument.write(`<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>`),
-		getTarget().contentDocument.write(`<body><script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>`),
+		newFrame.contentDocument.write(`<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>`),
+		newFrame.contentDocument.write(`<body><script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>`),
 		newFrame.contentDocument.write(newDocument.documentElement.innerHTML);
 		newFrame.contentDocument.close();
 
 		// workaround for https://github.com/Microsoft/vscode/issues/12865
 		// check new scrollTop and reset if neccessary
-		setTimeout(() => {
+		setTimeout(function () {
 			if (scrollTop !== newFrame.contentDocument.body.scrollTop) {
 				newFrame.contentDocument.body.scrollTop = scrollTop;
 			}
