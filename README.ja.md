@@ -95,7 +95,19 @@ Thanks to the author of "Cool Javascript Find on this Page".
 * **Please Install every time vscode is updated.**
 * I expect the vscode team's native implementation...(See, [Find is not available in Markdown Preview mode #2187](https://github.com/Microsoft/vscode/issues/2187)
 
-## Change Log
+## Change log
+
+### 0.0.6 
+
+- Sync with ]Fixes Webview reload Flickering (#19394)](https://github.com/Microsoft/vscode/commit/6fe2bae3b5b86daf97bb923386a0c960d703f64c)
+- Sync to vscode 1.9
+
+
+### 0.0.5 
+
+- Rename from findinpage to previewtools
+- Add textchanger
+- Add find6.js and textchanger.js
 
 ### 0.0.3
 
