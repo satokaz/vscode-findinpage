@@ -2,7 +2,7 @@
   "name": "vscode-findinpage",
   "displayName": "Previw Tools for Preview Editor",
   "description": "Add a bit two functions (search and zoom font) to the Preview Editor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "satokaz",
   "engines": {
     "vscode": "^1.5.0"
@@ -20,7 +20,7 @@
     "url": "https://github.com/satokaz/vscode-findinpage/issues"
   },
   "activationEvents": [
-    "onCommand:extension.findinpage"
+    "*"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -31,6 +31,24 @@
       }
     ]
   },
+    "configuration": {
+      "type": "object",
+      "title": "PreviewTools",
+      "order": 20,
+      "properties": {
+        "previewtools.autoinstall": {
+          "type": [
+            "boolean"
+          ],
+          "enum": [
+            true,
+            false
+          ],
+          "default": false,
+          "description": "WARNING: Please do not use. Forced installation"
+        }
+      }
+    },
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
     "compile": "tsc -watch -p ./",
@@ -46,7 +64,7 @@
     "gulp-uglify": "^2.0.0",
     "mocha": "^2.3.3",
     "typescript": "^2.0.3",
-    "vscode": "^1.0.0"
+    "vscode": "^1.0.3"
   },
   "dependencies": {
     "fs-extra": "^2.0.0",
