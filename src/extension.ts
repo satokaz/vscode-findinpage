@@ -15,12 +15,31 @@ interface MyMessageItem extends vscode.MessageItem {
 	id: number;
 }
 
-var execPath = process.execPath;
-var pathname = path.dirname(execPath).split(path.sep);
-if (process.platform == 'win32') {
-	var webviewPreJsPath = path.join(path.parse(execPath).root, pathname[1], pathname[2], '\\resources\\app\\out\\vs\\workbench\\parts\\html\\browser');
-} else {
-	var webviewPreJsPath = path.join(path.parse(execPath).root, pathname[0], pathname[1], pathname[2], pathname[3], '/Resources/app/out/vs/workbench/parts/html/browser');
+const execPath: string = process.execPath;
+const pathname: string[] = path.dirname(execPath).split(path.sep);
+
+//
+//  Get the directory path where the webview-pre.js file
+//
+const webviewPreJsPath: string = (process.platform === 'win32') 
+			? path.join(path.parse(execPath).root, pathname[1], pathname[2], '\\resources\\app\\out\\vs\\workbench\\parts\\html\\browser')
+			: path.join(path.parse(execPath).root, pathname[0], pathname[1], pathname[2], pathname[3], '/Resources/app/out/vs/workbench/parts/html/browser');
+			// console.log("webviewPreJsPath =", webviewPreJsPath );
+
+const fileWebviewPreJs: string = path.join(webviewPreJsPath, 'webview-pre.js');
+const mediaPath: string = path.join(vscode.extensions.getExtension("satokaz.vscode-findinpage").extensionPath, 'media');
+
+// 
+// This is optional.
+// If the autoinstall setting is true, Check the existence of webview-pre.js.orig.
+// If it does not exist, forcibly install webview-pre_previewtools.js.
+//
+if(vscode.workspace.getConfiguration('previewtools')['autoinstall'] === true) {
+	console.info("vscode-findinpage: autoinstall === true");
+	if (!statPath(fileWebviewPreJs + '.orig')) {
+		console.info(webviewPreJsPath + '.orig is not exist');
+		mediaInstall(mediaPath);
+	}
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -28,8 +47,8 @@ export function activate(context: vscode.ExtensionContext) {
     console.log('Congratulations, your extension "vscode-findinpage" is now active!');
 
     let disposable = vscode.commands.registerCommand('extension.findinpage', () => {
-		const mediaPath = context.asAbsolutePath(path.join('media'));
-		
+		// const mediaPath = context.asAbsolutePath(path.join('media'));
+
 		// debug
 		// const webviewPreJs = context.asAbsolutePath(path.join('media', 'webview-pre_previewtools.js'));;
 		// const find6Js = context.asAbsolutePath(path.join('media', 'find6.js'));;
@@ -86,18 +105,7 @@ function webviewPreJsToggle(mediaPath: string) {
 					vscode.window.showInformationMessage('Please with peace of mind. It has already been installed.');
 					break;
 				} else {
-					// fs-extra
-					fse.ensureDir(path.join(webviewPreJsPath, 'extra'), function (err: any) {
-						if (err) {
-							console.error(err);
-						} else {
-							fse.copySync(path.join(mediaPath, 'extra'), path.join(webviewPreJsPath, 'extra'));
-							console.log("success!");
-						}
-					});
-					// console.log(webviewPreJsPath + '.orig is not exist');
-					fs.writeFileSync(fileWebviewPreJs + '.orig', fs.readFileSync(fileWebviewPreJs, "utf-8"), 'utf8');
-					fs.writeFileSync(fileWebviewPreJs, fs.readFileSync(path.join(mediaPath, 'webview-pre_previewtools.js'),"utf-8"), 'utf8');
+					mediaInstall(mediaPath);
 					vscode.window.showInformationMessage('Install to Preview Tools in Preview Editor has been completed');
 				}
 				break;
@@ -105,7 +113,7 @@ function webviewPreJsToggle(mediaPath: string) {
 				// console.log("case 2");
 				if (fileBeing === "Enabled"){
 					// console.log(webviewPreJsPath + '.orig is  exists.');
-					fs.writeFileSync(fileWebviewPreJs, fs.readFileSync(fileWebviewPreJs + '.orig', "utf-8"), 'utf8');
+					fs.writeFileSync(fileWebviewPreJs, fs.readFileSync(fileWebviewPreJs + '.orig', "utf-8"), 'utf-8');
 					fs.unlinkSync(fileWebviewPreJs + '.orig');
 					fse.removeSync(path.join(webviewPreJsPath, 'extra'));
 					vscode.window.showInformationMessage('Uninstall is complete.');
@@ -123,4 +131,23 @@ function statPath(path: string) {
     return fs.statSync(path);
   } catch (ex) {}
   return void 0;
+}
+
+function mediaInstall(mediaPath: string) {
+	let array = fs.readFileSync(fileWebviewPreJs, 'utf-8').toString();
+
+		fse.ensureDir(path.join(webviewPreJsPath, 'extra'), function (err: any) {
+			if (err) {
+				console.error(err);
+			} else {
+				fse.copySync(path.join(mediaPath, 'extra'), path.join(webviewPreJsPath, 'extra'));
+			}
+		});
+		fs.writeFileSync(fileWebviewPreJs + '.orig', array, 'utf-8');
+
+    const matchResult = array.replace(/c.contentDocument.write\("\<!DOCTYPE\ html>"\)/g, 
+		`c.contentDocument.write("<!DOCTYPE html>"),c.contentDocument.write('<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>'),c.contentDocument.write('<script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`);
+		
+	fs.writeFileSync(fileWebviewPreJs, matchResult, 'utf-8');
+	console.log("webview-pre_previewtools.js installed.");
 }
