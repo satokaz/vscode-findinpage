@@ -145,7 +145,7 @@ All notable changes to the "vscode-findinpage" extension will be documented in t
 
 ### 0.2.1
 
-- Supports vscode 1.10.0 changes
+- Supports vscode 1.10.0 and 1.11.0-insiders changes 
 
 ### 0.2.0 
 
