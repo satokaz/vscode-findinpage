@@ -1,6 +1,10 @@
 ## Change Log
 All notable changes to the "vscode-findinpage" extension will be documented in this file.
 
+### 0.2.1
+
+- Supports vscode 1.10.0 changes
+
 ### 0.2.0 
 
 - No longer be replaced with the prepared `webview-pre_previewtools.js` file.
