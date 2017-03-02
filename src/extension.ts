@@ -21,7 +21,7 @@ const pathname: string[] = path.dirname(execPath).split(path.sep);
 //
 //  Get the directory path where the webview-pre.js file
 //
-const webviewPreJsPath: string = (process.platform === 'win32') 
+const webviewPreJsPath: string = (process.platform === 'win32')
 			? path.join(path.parse(execPath).root, pathname[1], pathname[2], '\\resources\\app\\out\\vs\\workbench\\parts\\html\\browser')
 			: path.join(path.parse(execPath).root, pathname[0], pathname[1], pathname[2], pathname[3], '/Resources/app/out/vs/workbench/parts/html/browser');
 			// console.log("webviewPreJsPath =", webviewPreJsPath );
@@ -29,7 +29,7 @@ const webviewPreJsPath: string = (process.platform === 'win32')
 const fileWebviewPreJs: string = path.join(webviewPreJsPath, 'webview-pre.js');
 const mediaPath: string = path.join(vscode.extensions.getExtension("satokaz.vscode-findinpage").extensionPath, 'media');
 
-// 
+//
 // This is optional.
 // If the autoinstall setting is true, Check the existence of webview-pre.js.orig.
 // If it does not exist, forcibly install webview-pre_previewtools.js.
@@ -75,7 +75,7 @@ function webviewPreJsToggle(mediaPath: string) {
 		fileBeing = "Disabled";
 	} else {
 		// console.log('file/dir exists: ' + webviewPreJsPath + '.orig');
-		fileBeing = "Enabled"; 
+		fileBeing = "Enabled";
 	}
 	vscode.window.showInformationMessage<MyMessageItem>(
 		localize('toggle', 'Would you like to Enable the Preview Tools in the Preview Editor? (Currently {0})', fileBeing),
@@ -145,9 +145,12 @@ function mediaInstall(mediaPath: string) {
 		});
 		fs.writeFileSync(fileWebviewPreJs + '.orig', array, 'utf-8');
 
-    const matchResult = array.replace(/c.contentDocument.write\("\<!DOCTYPE\ html>"\)/g, 
-		`c.contentDocument.write("<!DOCTYPE html>"),c.contentDocument.write('<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>'),c.contentDocument.write('<script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`);
-		
+    const matchResult = (vscode.version >= "1.10.0") 
+						// vscode 1.10.0 or later
+						? array.replace(/..contentDocument.write\("\<!DOCTYPE\ html>"\)/g,`l.contentDocument.write("<!DOCTYPE html>"),l.contentDocument.write('<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>'),l.contentDocument.write('<script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`)
+						// or Lower version
+						: array.replace(/c.contentDocument.write\("\<!DOCTYPE\ html>"\)/g, `c.contentDocument.write("<!DOCTYPE html>"),c.contentDocument.write('<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>'),c.contentDocument.write('<script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`);
+
 	fs.writeFileSync(fileWebviewPreJs, matchResult, 'utf-8');
 	console.log("webview-pre_previewtools.js installed.");
 }
