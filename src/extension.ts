@@ -145,11 +145,12 @@ function mediaInstall(mediaPath: string) {
 		});
 		fs.writeFileSync(fileWebviewPreJs + '.orig', array, 'utf-8');
 
-    const matchResult = (vscode.version >= "1.10.0") 
-						// vscode 1.10.0 or later
-						? array.replace(/..contentDocument.write\("\<!DOCTYPE\ html>"\)/g,`l.contentDocument.write("<!DOCTYPE html>"),l.contentDocument.write('<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>'),l.contentDocument.write('<script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`)
-						// or Lower version
-						: array.replace(/c.contentDocument.write\("\<!DOCTYPE\ html>"\)/g, `c.contentDocument.write("<!DOCTYPE html>"),c.contentDocument.write('<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>'),c.contentDocument.write('<script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`);
+		let overWriteChar = JSON.stringify(array.match(/..contentDocument.write\("<!DOCTYPE html>"\)/g)).substr(2,1);
+		// console.log('d =',overWriteChar);
+
+    const matchResult =
+						array.replace(/..contentDocument.write\("\<!DOCTYPE\ html>"\)/g,`${overWriteChar}.contentDocument.write("<!DOCTYPE html>"),${overWriteChar}.contentDocument.write('<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>'),${overWriteChar}.contentDocument.write('<script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`);
+
 
 	fs.writeFileSync(fileWebviewPreJs, matchResult, 'utf-8');
 	console.log("webview-pre_previewtools.js installed.");
