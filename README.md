@@ -118,6 +118,17 @@ Please install and run the extension as the root user.
 $ sudo code (or code-insiders) --user-data-dir=/tmp
 ```
 
+### Install - Linux 
+
+The vscode installed from rpm or the repository is placed in `/usr/share/code`.
+Write permission is given only to the root user.
+
+Please install and run the extension as the root user.
+
+```
+$ sudo code (or code-insiders) --user-data-dir=/tmp
+```
+
 It will be installed in `/usr/share/code/resources/app/out/vs/workbench/parts/html/browser`.
 
 ### How to update
