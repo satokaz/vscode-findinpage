@@ -107,16 +107,6 @@ Open Preview Editor (Markdown Preview or HELP | Release Notes ... ) and check th
 
 ![](https://raw.githubusercontent.com/satokaz/vscode-findinpage/images/スクリーンショット%202017-01-22%2015.17.16.png)
 
-### Install - Linux 
-
-The vscode installed from rpm or the repository is placed in `/usr/share/code`.
-Write permission is given only to the root user.
-
-Please install and run the extension as the root user.
-
-```
-$ sudo code (or code-insiders) --user-data-dir=/tmp
-```
 
 ### Install - Linux 
 
