@@ -16,15 +16,23 @@ interface MyMessageItem extends vscode.MessageItem {
 }
 
 const execPath: string = process.execPath;
-const pathname: string[] = path.dirname(execPath).split(path.sep);
+// // const pathname: string[] = path.dirname(execPath).split(path.sep);
+// console.log(execPath.replace(/code\ -.*/ig,''));
+// console.log(execPath.replace(/code\..*/ig,''));
+// console.log(execPath.replace(/\/[^/]*$/g,''));
+// console.log(execPath.replace(/Frameworks.*/g,'')); //for macOS
+// "/Applications/Visual Studio Code - Insiders.app/Contents/Frameworks/Code - Insiders Helper.app/Contents/MacOS/Code - Insiders Helper"
 
 //
 //  Get the directory path where the webview-pre.js file
 //
 const webviewPreJsPath: string = (process.platform === 'win32')
-			? path.join(path.parse(execPath).root, pathname[1], pathname[2], '\\resources\\app\\out\\vs\\workbench\\parts\\html\\browser')
-			: path.join(path.parse(execPath).root, pathname[0], pathname[1], pathname[2], pathname[3], '/Resources/app/out/vs/workbench/parts/html/browser');
-			// console.log("webviewPreJsPath =", webviewPreJsPath );
+			? path.normalize(path.join(execPath.replace(/\\[^\\]*$/,''), '\\resources\\app\\out\\vs\\workbench\\parts\\html\\browser'))
+			: (process.platform === 'darwin') ? path.normalize(path.join(execPath.replace(/Frameworks.*/ig,''), '/Resources/app/out/vs/workbench/parts/html/browser'))
+			: path.normalize(path.join(execPath.replace(/\/[^/]*$/,''), '/resources/app/out/vs/workbench/parts/html/browser')); // Linux
+
+			console.log("webviewPreJsPath =", webviewPreJsPath ); 
+
 
 const fileWebviewPreJs: string = path.join(webviewPreJsPath, 'webview-pre.js');
 const mediaPath: string = path.join(vscode.extensions.getExtension("satokaz.vscode-findinpage").extensionPath, 'media');
@@ -78,7 +86,7 @@ function webviewPreJsToggle(mediaPath: string) {
 		fileBeing = "Enabled";
 	}
 	vscode.window.showInformationMessage<MyMessageItem>(
-		localize('toggle', 'Would you like to Enable the Preview Tools in the Preview Editor? (Currently {0})', fileBeing),
+		localize('toggle', 'Would you like to Enable the Preview Tools in the Preview Editor? (Currently {0})', fileBeing), 
 			{
 				title: localize('install', 'Install'),
 				id: 1
@@ -92,7 +100,7 @@ function webviewPreJsToggle(mediaPath: string) {
 				id: 3,
 				isCloseAffordance: true
 			}
-	).then((selected) => {
+	 ).then((selected) => {
 		// console.log(selected);
 		if (!selected || selected.id === 3) {
 			// console.log("case 3");
