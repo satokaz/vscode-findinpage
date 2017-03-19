@@ -1,6 +1,11 @@
 ## Change Log
 All notable changes to the "vscode-findinpage" extension will be documented in this file.
 
+### 0.2.3
+
+- Fixed path handling
+- Fix misspelling
+
 ### 0.2.2
 
 - Supports vscode 1.11.0-insiders changes
