@@ -157,7 +157,7 @@ function mediaInstall(mediaPath: string) {
 		// console.log('d =',overWriteChar);
 
     const matchResult =
-						array.replace(/..contentDocument.write\("\<!DOCTYPE\ html>"\)/g,`${overWriteChar}.contentDocument.write("<!DOCTYPE html>"),${overWriteChar}.contentDocument.write('<body><script type="text/javascript" id="cool_find_script" src="extra/find6.js"></script>'),${overWriteChar}.contentDocument.write('<script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`);
+						array.replace(/..contentDocument.write\("\<!DOCTYPE\ html>"\)/g,`${overWriteChar}.contentDocument.write("<!DOCTYPE html>"),${overWriteChar}.contentDocument.write('<body><script type="text/javascript" id="cool_textchanger_script" src="extra/textchanger.js"></script></body>')`);
 
 
 	fs.writeFileSync(fileWebviewPreJs, matchResult, 'utf-8');

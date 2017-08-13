@@ -1,6 +1,10 @@
 ## Change Log
 All notable changes to the "vscode-findinpage" extension will be documented in this file.
 
+### 0.2.4
+
+- Search function obsolete
+
 ### 0.2.3
 
 - Fixed path handling
