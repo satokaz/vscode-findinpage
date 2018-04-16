@@ -155,6 +155,7 @@ function mediaInstall(mediaPath: string) {
         fse.ensureDir(path.join(webviewPreJsPath, 'extra'), function (err: any) {
             if (err) {
                 console.error(err);
+                vscode.window.showInformationMessage('Please start vscode with administrator\'s privileges only when installing.');
             } else {
                 fse.copySync(path.join(mediaPath, 'extra'), path.join(webviewPreJsPath, 'extra'));
             }
