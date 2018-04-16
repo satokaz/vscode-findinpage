@@ -14,7 +14,7 @@ you want the text changer button to appear:
 var text_settings = { 
 
 /* EDIT THE FOLLOWING VARIABLES */
-hide_options: 1, // 0 = Don't hide options in a button; 1 = Hide options in a button
+hide_options: 0, // 0 = Don't hide options in a button; 1 = Hide options in a button
 button_html: "A+", // Only used if hide_options = 1
 lock_button: 1, // 0 = Don't lock button at bottom of screen; 1 = Lock button
 text_color_button : 1, // 0 = Don't show text color button; 1 = Show text color button
@@ -457,8 +457,8 @@ function save_to_storage(option, value)
 		if (value == 1 || /reset|Default/i.test(value))
 			expire = -1; // Delete cookie	
 		
-		setCookie(option, value, expire);
-		if (text_settings.test_mode) console.log("setcookie:"+option+":"+value);			
+			setCookie(option, value, expire);
+			if (text_settings.test_mode) console.log("setcookie:"+option+":"+value);
 	}	
 }
 
@@ -471,7 +471,7 @@ function get_from_storage()
 		for (var i=0; i < text_options.length; i++)
 		{
 			var option = text_options[i];
-			var value = getCookie(option);
+				var value = getCookie(option);
 			if (value != "") // If not empty
 			{
 				if (text_settings.test_mode) console.log("getcookie:"+option+":"+value);
@@ -495,13 +495,17 @@ function get_from_storage()
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+	var expires = "expires="+d.toUTCString();
+	try{
+		document.cookie = cname + "=" + cvalue + "; " + expires;
+	} catch (err) {}
 }
 
 function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
+	var name = cname + "=";
+	
+		var ca = document.cookie.split(';');
+	
     for(var i = 0; i <ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') {

@@ -32,9 +32,10 @@ Font zooming possible only for Preview Editor.
 
 | Function | Key combination                                                       |
 | -------- | --------------------------------------------------------------------- |
-| Zoom In  | Hold down `Ctrl` + `Shift` + `alt (macOS: Option)` and Press `=`      |
-| Zoom Out | Hold down `Ctrl` + `Shift` + `alt (macOS: Option)` and Press `-`      |
-| Reset    | Hold down `Ctrl` + `Shift` + `alt (macOS: Option)` and Press `delete` |
+|          |                                                                       |
+| Zoom In  | Hold down `Alt` and Press `=`      |
+| Zoom Out | Hold down `Alt` and Press `-`      |
+| Reset    | Hold down `Alt` and Press `delete` |
 
 <br>
 

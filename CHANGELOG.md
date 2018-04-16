@@ -1,6 +1,11 @@
 ## Change Log
 All notable changes to the "vscode-findinpage" extension will be documented in this file.
 
+### 0.2.5
+
+- Changing the webview-pre.js path in vscode 1.21 and 1.22
+- 
+
 ### 0.2.4
 
 - Search function obsolete
