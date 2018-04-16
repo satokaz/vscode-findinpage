@@ -2,10 +2,10 @@
   "name": "vscode-findinpage",
   "displayName": "Preview Tools for Preview Editor",
   "description": "Add a bit one functions (zoom font) to the Preview Editor",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "publisher": "satokaz",
   "engines": {
-    "vscode": "^1.5.0"
+    "vscode": "^1.21.0"
   },
   "categories": [
     "Other"
@@ -24,6 +24,9 @@
   ],
   "main": "./out/src/extension",
   "contributes": {
+    "markdown.previewScripts": [
+      "./media/extra/textchanger.js"
+    ],
     "commands": [
       {
         "command": "extension.findinpage",
@@ -31,24 +34,24 @@
       }
     ]
   },
-    "configuration": {
-      "type": "object",
-      "title": "PreviewTools",
-      "order": 20,
-      "properties": {
-        "previewtools.autoinstall": {
-          "type": [
-            "boolean"
-          ],
-          "enum": [
-            true,
-            false
-          ],
-          "default": false,
-          "description": "WARNING: Please do not use. Forced installation"
-        }
+  "configuration": {
+    "type": "object",
+    "title": "PreviewTools",
+    "order": 20,
+    "properties": {
+      "previewtools.autoinstall": {
+        "type": [
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false
+        ],
+        "default": false,
+        "description": "WARNING: Please do not use. Forced installation"
       }
-    },
+    }
+  },
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
     "compile": "tsc -watch -p ./",
